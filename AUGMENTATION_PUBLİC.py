@@ -12,11 +12,10 @@ do_noise = True
 do_saturation = True
 do_rotation = True
 
-
 # Açı
 angle = 0
-path_folder = "C:/Users/yunusmuharrem.polat/Desktop/deneme_augmentation"
-
+#Resim ve onlara ait etiket bilgilerini içeren .txt uzantılı dosyaların olduğu klasör 
+path_folder = "path/path/path"
 
 #Noise Fonksiyonu
 def add_noise(image):
@@ -84,7 +83,7 @@ for file in os.listdir(path_folder):
             rotated_image = rotate_image(augmented_image, angle)
             
 
-            # Döndürülmüş görüntüyü kaydetmek isterseniz
+            # Döndürülmüş görüntüyü kaydetmek
             new_rotated_image_path = os.path.join(path_folder, "rotated_" + file)
             cv2.imwrite(new_rotated_image_path, rotated_image)
             
