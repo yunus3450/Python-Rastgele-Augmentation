@@ -12,10 +12,12 @@ do_noise = True
 do_saturation = True
 do_rotation = True
 
+
 # Açı
 angle = 0
-#Resim ve onlara ait etiket bilgilerini içeren .txt uzantılı dosyaların olduğu klasör 
-path_folder = "path/path/path"
+#Resim ve etiket bilgilerini içeren .txt uzantılı dosyaların olduğu klasör
+path_folder = "path/path"
+
 
 #Noise Fonksiyonu
 def add_noise(image):
@@ -83,7 +85,7 @@ for file in os.listdir(path_folder):
             rotated_image = rotate_image(augmented_image, angle)
             
 
-            # Döndürülmüş görüntüyü kaydetmek
+            # Döndürülmüş görüntüyü kaydetmek isterseniz
             new_rotated_image_path = os.path.join(path_folder, "rotated_" + file)
             cv2.imwrite(new_rotated_image_path, rotated_image)
             
@@ -116,5 +118,3 @@ for file in os.listdir(path_folder):
             # Txt dosyasını kopyalamak yeterli
             new_txt_file_path = os.path.splitext(new_augmented_image_path)[0] + ".txt"
             shutil.copy(txt_file_path, new_txt_file_path)
-
-
